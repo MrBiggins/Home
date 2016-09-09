@@ -1,0 +1,10 @@
+C:\Users\Denis\documents\visual studio 2013\Projects\SystemOfLinerEquation\EquationManager\obj\Debug\EquationManager.csprojResolveAssemblyReference.cache
+C:\Users\Denis\documents\visual studio 2013\Projects\SystemOfLinerEquation\EquationManager\bin\Debug\EquationManager.dll
+C:\Users\Denis\documents\visual studio 2013\Projects\SystemOfLinerEquation\EquationManager\bin\Debug\EquationManager.pdb
+C:\Users\Denis\documents\visual studio 2013\Projects\SystemOfLinerEquation\EquationManager\obj\Debug\EquationManager.dll
+C:\Users\Denis\documents\visual studio 2013\Projects\SystemOfLinerEquation\EquationManager\obj\Debug\EquationManager.pdb
+C:\Users\Denis\Source\Repos\Home\SystemOfLinerEquation\EquationManager\bin\Debug\EquationManager.dll
+C:\Users\Denis\Source\Repos\Home\SystemOfLinerEquation\EquationManager\bin\Debug\EquationManager.pdb
+C:\Users\Denis\Source\Repos\Home\SystemOfLinerEquation\EquationManager\obj\Debug\EquationManager.csprojResolveAssemblyReference.cache
+C:\Users\Denis\Source\Repos\Home\SystemOfLinerEquation\EquationManager\obj\Debug\EquationManager.dll
+C:\Users\Denis\Source\Repos\Home\SystemOfLinerEquation\EquationManager\obj\Debug\EquationManager.pdb
