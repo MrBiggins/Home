@@ -1,0 +1,10 @@
+\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.Core\bin\Debug\Compiler.Core.dll
+\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.Core\bin\Debug\Compiler.Core.pdb
+\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.Core\obj\Debug\Compiler.Core.csprojResolveAssemblyReference.cache
+\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.Core\obj\Debug\Compiler.Core.dll
+\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.Core\obj\Debug\Compiler.Core.pdb
+C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.Core\bin\Debug\Compiler.Core.dll
+C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.Core\bin\Debug\Compiler.Core.pdb
+C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.Core\obj\Debug\Compiler.Core.csprojResolveAssemblyReference.cache
+C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.Core\obj\Debug\Compiler.Core.dll
+C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.Core\obj\Debug\Compiler.Core.pdb

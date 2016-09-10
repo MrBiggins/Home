@@ -1,0 +1,10 @@
+<Types>
+<Type value="Integer"/>
+<Type value="Word"/>
+<!--<Type value="short"/>
+<Type value="ushort"/>
+<Type value="char"/>
+<Type value="byte"/>
+<Type value="bool"/>
+<Type value="Size"/>-->
+</Types>
