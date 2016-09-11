@@ -103,12 +103,12 @@ namespace Compiler.Core.Rules {
                         var lines = linesToCheck[i].Split(' ');
                         for (var j = 0; j < lines.Count(); j++) {
                             switch (j) {
-                                case 1:
+                                case 0:
                                     if (lines[j] != "procedure") {
                                         return false;
                                     }
                                     break;
-                                case 2:
+                                case 1:
                                     var splitName = lines[j].Split('.');
                                     if (splitName.Count() > 1) {
                                         if (!Regex.IsMatch(splitName[0], @"^[a-zA-Z]+\;?$")) {
