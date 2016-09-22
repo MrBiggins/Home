@@ -1,22 +1,15 @@
 ﻿using CarLibrary;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpCarClient
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            SportsCar viper = new SportsCar("Viper", 240, 40);
+namespace CSharpCarClient {
+    internal class Program {
+        static void Main(string[] args) {
+            var viper = new SportsCar("Viper", 240, 40);
             viper.TurboBoost();
-
-            MiniVan mv = new MiniVan();
+            var mv = new MiniVan();
             mv.TurboBoost();
-            Console.WriteLine("Done. Press Enter to terminate"); Console.ReadLine();
+            Console.WriteLine("Done. Press Enter to terminate");
+            Console.ReadLine();
         }
     }
 }
