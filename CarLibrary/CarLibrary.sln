@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarLibrary", "CarLibrary\CarLibrary.csproj", "{A84525E3-497F-4002-9767-36F378E4FF79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpCarClient", "CSharpCarClient\CSharpCarClient.csproj", "{D428441B-CE76-4757-8404-788376837BCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorExample", "CalculatorExample\CalculatorExample.csproj", "{6A68EB78-7ABB-467C-940A-27ACF56D4625}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A84525E3-497F-4002-9767-36F378E4FF79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A84525E3-497F-4002-9767-36F378E4FF79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A84525E3-497F-4002-9767-36F378E4FF79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A84525E3-497F-4002-9767-36F378E4FF79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D428441B-CE76-4757-8404-788376837BCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D428441B-CE76-4757-8404-788376837BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D428441B-CE76-4757-8404-788376837BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D428441B-CE76-4757-8404-788376837BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A68EB78-7ABB-467C-940A-27ACF56D4625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A68EB78-7ABB-467C-940A-27ACF56D4625}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A68EB78-7ABB-467C-940A-27ACF56D4625}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A68EB78-7ABB-467C-940A-27ACF56D4625}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
