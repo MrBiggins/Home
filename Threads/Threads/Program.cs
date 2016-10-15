@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Net.Mime;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Threads {
-    class Program {
+    internal class Program {
 
         public static List<Thread> TreadList = new List<Thread>();
 
@@ -19,7 +14,6 @@ namespace Threads {
             var m = new Mutex(true, "myApp", out createdNew);
 
             if (!createdNew) {
-                // myApp is already running...
                 Console.WriteLine(  "myApp is already running! Multiple Instances");
                 Console.ReadLine();
                 return;
@@ -65,7 +59,7 @@ namespace Threads {
             }
         }
 
-        public static void ShowThreadInfo() {
+        private static void ShowThreadInfo() {
             int workerThreads;
             int completionPortThreads;
             Console.WriteLine("\n");
@@ -94,8 +88,7 @@ namespace Threads {
         }
 
 
-
-        static void Task1(Object state) {
+        private static void Task1(object state) {
             Thread.CurrentThread.Name = "1";
             Console.WriteLine("Поток {0}:{1}", Thread.CurrentThread.Name,
             Thread.CurrentThread.ManagedThreadId);
@@ -103,7 +96,7 @@ namespace Threads {
             Thread.Sleep(200);
         }
 
-        static void Task2(Object state) {
+        private static void Task2(object state) {
             Thread.CurrentThread.Name = "2";
             Console.WriteLine("Поток {0}:{1}", Thread.CurrentThread.Name,
             Thread.CurrentThread.ManagedThreadId);
