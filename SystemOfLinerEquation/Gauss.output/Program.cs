@@ -52,6 +52,8 @@ namespace Gauss.output {
             for (var i = 0; i < results.Length; i++) {
                 Console.WriteLine(string.Format("x{0}={1}\n", i + 1, results[i]));
             }
+
+            manager.CountNormaManhatten(matrix, n);
             Console.ReadLine();
         }
     }

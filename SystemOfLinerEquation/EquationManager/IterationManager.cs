@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using EquationManager.Interface;
 using Microsoft.Win32.SafeHandles;
 
@@ -79,14 +80,14 @@ namespace EquationManager {
 
         public double[] ReverseFlow(double[,] matrix, int length, int height) {
             var xValues = new double[length];
-           var x3 = matrix[height - 1,length] / matrix[height - 1,length - 1];
-            var temp1 = x3 * matrix[height - 2,length - 1];
-            var temp2 = matrix[height - 2,length] - temp1;
-            var x2 = temp2 / matrix[height - 2,length - 2];
-            var temp3 = x3 * matrix[height - 3,length - 1];
-            var temp4 = x2 * matrix[height - 3,length - 2];
-            var temp5 = matrix[height - 3,length] - temp3 - temp4;
-            var x1 = temp5 / matrix[height - 3,length - 3];
+            var x3 = matrix[height - 1, length] / matrix[height - 1, length - 1];
+            var temp1 = x3 * matrix[height - 2, length - 1];
+            var temp2 = matrix[height - 2, length] - temp1;
+            var x2 = temp2 / matrix[height - 2, length - 2];
+            var temp3 = x3 * matrix[height - 3, length - 1];
+            var temp4 = x2 * matrix[height - 3, length - 2];
+            var temp5 = matrix[height - 3, length] - temp3 - temp4;
+            var x1 = temp5 / matrix[height - 3, length - 3];
             xValues[0] = x1;
             xValues[1] = x2;
             xValues[2] = x3;
@@ -97,6 +98,18 @@ namespace EquationManager {
             for (var i = 0; i < matrix.GetLength(0); i++) {
                 Console.WriteLine(matrix[i, 0] + "x(1)+" + matrix[i, 1] + "x(2)+" + matrix[i, 2] + "x(3) = " + matrix[i, 3]);
             }
+        }
+
+        public void CountNormaManhatten(double[,] m, int n) {
+            var arr = new double[n];
+            Console.WriteLine("Counting norm.");
+            for (var i = 0; i < n; i++) {
+                for (var j = 0; j < n; j++) {
+                    arr[i] += m[i, j];
+                }
+            }
+            var norma = arr.Concat(new double[] { 0 }).Max();
+            Console.WriteLine("The norma of the matrix should be: {0}", norma);
         }
     }
 }
