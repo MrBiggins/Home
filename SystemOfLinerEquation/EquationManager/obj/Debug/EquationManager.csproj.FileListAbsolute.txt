@@ -8,3 +8,8 @@ C:\Users\Denis\Source\Repos\Home\SystemOfLinerEquation\EquationManager\bin\Debug
 C:\Users\Denis\Source\Repos\Home\SystemOfLinerEquation\EquationManager\obj\Debug\EquationManager.csprojResolveAssemblyReference.cache
 C:\Users\Denis\Source\Repos\Home\SystemOfLinerEquation\EquationManager\obj\Debug\EquationManager.dll
 C:\Users\Denis\Source\Repos\Home\SystemOfLinerEquation\EquationManager\obj\Debug\EquationManager.pdb
+C:\GIT\SystemOfLinerEquation\EquationManager\bin\Debug\EquationManager.dll
+C:\GIT\SystemOfLinerEquation\EquationManager\bin\Debug\EquationManager.pdb
+C:\GIT\SystemOfLinerEquation\EquationManager\obj\Debug\EquationManager.csprojResolveAssemblyReference.cache
+C:\GIT\SystemOfLinerEquation\EquationManager\obj\Debug\EquationManager.dll
+C:\GIT\SystemOfLinerEquation\EquationManager\obj\Debug\EquationManager.pdb
