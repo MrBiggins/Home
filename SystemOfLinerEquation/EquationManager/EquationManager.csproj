@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GaussZeidel.cs" />
     <Compile Include="Interface\IGauss.cs" />
     <Compile Include="IterationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
