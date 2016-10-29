@@ -1,4 +1,3 @@
-using System.Windows;
 using System.Windows.Controls;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -15,8 +14,6 @@ namespace Stock.Gui.vpoutput {
         public MainViewModel() {
             ContentWindow = new MainView();
         }
-
-
 
         private UserControl _contentWindow;
         public UserControl ContentWindow {
