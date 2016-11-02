@@ -54,3 +54,6 @@ C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI
 C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.g.resources
 C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.Properties.Resources.resources
 C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.csproj.GenerateResource.Cache
+C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\Compiler.UI.exe.config
+C:\GIT\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.exe
+C:\GIT\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.pdb

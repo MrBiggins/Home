@@ -1,3 +1,6 @@
+using GalaSoft.MvvmLight.Command;
+using Stock.Gui.Views;
+
 namespace Stock.Gui.vpoutput {
     public class ConfigurationViewModel {
 
@@ -5,7 +8,7 @@ namespace Stock.Gui.vpoutput {
         /// Default constructor
         /// </summary>
         public ConfigurationViewModel() {
-          //  throw new global::System.Exception("Not implemented");
+            //  throw new global::System.Exception("Not implemented");
         }
 
         #region Properties
@@ -46,8 +49,20 @@ namespace Stock.Gui.vpoutput {
         /// <summary>
         /// Command calls manage branches window
         /// </summary>
-        public void ManageBranchesCommand() {
-            throw new global::System.Exception("Not implemented");
+
+        private RelayCommand _manageBranchesCommand;
+        public RelayCommand ManageBranchesCommand {
+            get {
+                if (_manageBranchesCommand == null) {
+                    _manageBranchesCommand = new RelayCommand(
+                    () => {
+                        var manageBranches = new ManageBranches();
+                        manageBranches.Show();
+                    },
+                    () => true);
+                }
+                return _manageBranchesCommand;
+            }
         }
         /// <summary>
         /// Command calls rules window

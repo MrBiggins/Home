@@ -7,6 +7,13 @@
       d:DesignHeight="300" d:DesignWidth="300">
 
     <Grid>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">CONFIGURATION IS HERE</TextBlock>
+        <DockPanel LastChildFill="True">
+            <TextBlock DockPanel.Dock="Top" VerticalAlignment="Center" HorizontalAlignment="Center">CONFIGURATION IS HERE</TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <Button Command="{Binding ManageBranchesCommand}" Margin="10" Width="100" Height="24">Manage</Button>
+            </StackPanel>
+        </DockPanel>
+  
+       
     </Grid>
 </UserControl>

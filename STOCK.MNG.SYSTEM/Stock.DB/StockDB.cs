@@ -1,4 +1,6 @@
-namespace Stock.Gui.vpoutput {
+using System;
+
+namespace Stock.DB {
     public class StockDb {
 
 
@@ -11,8 +13,11 @@ namespace Stock.Gui.vpoutput {
         public void SaveNewMainVaultToDb() {
             throw new global::System.Exception("Not implemented");
         }
-        public void AddNewBranchToDb() {
-            throw new global::System.Exception("Not implemented");
+        public static void AddNewBranchToDb(Branch branch) {
+            using (var db = new StockDbContext()) {
+                db.Branches.Add(branch);
+                db.SaveChanges();
+            }
         }
         public void SaveRule() {
             throw new global::System.Exception("Not implemented");
