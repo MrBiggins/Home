@@ -8,13 +8,13 @@
             if (char.IsLetter(a)) {
                 return CharacterType.Letter;
             }
-            if (char.IsSeparator(a)) {
+           /* if (char.IsSeparator(a)) {
                 return CharacterType.Delimiter;
-            }
+            }*/
             if (char.IsWhiteSpace(a)) {
                 return CharacterType.WhiteSPace;
             }
-            return CharacterType.Uknown;
+            return CharacterType.Delimiter;
         }
     }
 

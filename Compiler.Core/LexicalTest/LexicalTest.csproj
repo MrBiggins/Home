@@ -53,6 +53,12 @@
     <Compile Include="ParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Infastructure\Core.Infastructure.csproj">
+      <Project>{FC83C1C3-9BDB-446D-9455-6FD4BC73300B}</Project>
+      <Name>Core.Infastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

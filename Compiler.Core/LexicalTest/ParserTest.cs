@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Core.Infastructure;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LexicalTest {
@@ -9,6 +10,8 @@ namespace LexicalTest {
         public void ParseInputCodeString()
         {
             var code = File.ReadAllText(@"Source.txt");
+            var parser = new Parser();
+            parser.Start(code);
         }
     }
 }

@@ -45,6 +45,31 @@
     <Compile Include="Interface\ICompiler.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialization\keyWordList.designer.cs" />
+    <Compile Include="Serialization\SpecialCharacters.designer.cs" />
+    <Compile Include="Serialization\TypeList.designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Serialization\keyWordList.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Serialization\SpecialCharacters.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Serialization\TypeList.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="XML\keyWordList.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML\SpecialCharacters.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML\TypeList.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
