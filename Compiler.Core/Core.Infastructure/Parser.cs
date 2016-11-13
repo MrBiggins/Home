@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Core.Infastructure.Interface;
 
 namespace Core.Infastructure {
@@ -9,8 +10,9 @@ namespace Core.Infastructure {
 
 
         public List<char> ListOfChars;
-        public List<char> ListOfInts;
+        public List<char> ListOfConstants;
         public List<char> ListOfDelimeiters;
+        public List<char> TempCharacterList;
 
         public List<CharacterItem> GlobalIndexList;
 
@@ -18,10 +20,12 @@ namespace Core.Infastructure {
         private readonly SpecialCharacters _delimitersTable;
 
         public Parser() {
+
             ListOfChars = new List<char>();
-            ListOfInts = new List<char>();
+            ListOfConstants = new List<char>();
             ListOfDelimeiters = new List<char>();
             GlobalIndexList = new List<CharacterItem>();
+            TempCharacterList = new List<char>();
 
             var keyWordTableXml = File.ReadAllText(@"C:/GIT/Compiler.Core/LexicalTest/bin/Debug/XML/keyWordList.xml");
             _keyWordTable = KeyWords.Deserialize(keyWordTableXml);
@@ -39,8 +43,12 @@ namespace Core.Infastructure {
                     break;
 
                 case CharacterType.Delimiter:
-                    ListOfDelimeiters.Add(a);
-                    MapKeywords();
+                    var isLookuped = CheckNextSymbol(a);
+                    if (!isLookuped) {
+                        ListOfDelimeiters.Add(a);
+                        MapKeywords();
+                    }
+
                     break;
 
                 case CharacterType.Letter:
@@ -48,7 +56,8 @@ namespace Core.Infastructure {
                     break;
 
                 case CharacterType.Digit:
-                    ListOfInts.Add(a);
+                    ListOfConstants.Add(a);
+
                     break;
                 case CharacterType.Uknown:
                     break;
@@ -60,38 +69,19 @@ namespace Core.Infastructure {
 
 
 
-        public void Lookup(string lexem) {
+        public bool Lookup(string lexem) {
             var isKeword = _keyWordTable.KeyWord.Any(e => string.Equals(e.value, lexem,
                 StringComparison.CurrentCultureIgnoreCase));
             if (!isKeword) {
                 isKeword = _delimitersTable.SpecialCharacter.Any(e => string.Equals(e.value,
                     lexem, StringComparison.CurrentCultureIgnoreCase));
             }
-            Add(lexem, isKeword);
+            return isKeword;
         }
 
         public void Add(string identificator, bool isKeyword) {
             if (isKeyword) {
-
-                SpecialCharactersSpecialCharacter delimiter = null;
-                var keywordValue = 0;
-
-                var keyWordsKeyWord = _keyWordTable.KeyWord.FirstOrDefault(e => e.value == identificator);
-
-                if (keyWordsKeyWord == null) {
-
-                    delimiter = _delimitersTable.SpecialCharacter.FirstOrDefault(e => e.value == identificator);
-                }
-
-                if (keyWordsKeyWord != null) {
-
-                    keywordValue = keyWordsKeyWord.index;
-                }
-
-                if (delimiter != null) {
-
-                    keywordValue = delimiter.index;
-                }
+                var keywordValue = ResolveKeyWordIndex(identificator);
                 if (GlobalIndexList.All(e => e.Value != identificator)) {
                     GlobalIndexList.Add(new CharacterItem {
                         LookupIndex = keywordValue,
@@ -99,22 +89,41 @@ namespace Core.Infastructure {
                         Value = identificator
                     });
                 }
-
             } else {
                 GlobalIndexList.Add(new CharacterItem {
                     LookupIndex = 0,
                     IsKeyword = false,
                     Value = identificator
                 });
+
             }
         }
+
 
         public CharacterType CheckCharacterType(char a) {
             return CharTypeResolver.Resolve(a);
         }
 
-        public void CheckNextSymbol() {
-            throw new NotImplementedException();
+        public bool CheckNextSymbol(char current) {
+            if (current == ':') {
+                if (!TempCharacterList.Contains(':'))
+                    TempCharacterList.Add(current);
+                return false;
+            }
+            if (current == '=') {
+                if (TempCharacterList.Any()) {
+                    TempCharacterList.Add(current);
+                    var array = TempCharacterList.ToArray();
+                    var str = new string(array);
+                    var isKeword = Lookup(str);
+                    if (isKeword) {
+                        Add(str, true);
+                        TempCharacterList.Clear();
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         public void Start(string code) {
@@ -128,15 +137,47 @@ namespace Core.Infastructure {
             var arrayOfChars = ListOfChars.ToArray();
             if (arrayOfChars.Length != 0) {
                 var str = new string(arrayOfChars);
-                Lookup(str);
+                var isKeword = Lookup(str);
+                Add(str, isKeword);
                 ListOfChars.Clear();
             }
             var arraOfDelimiters = ListOfDelimeiters.ToArray();
             if (arraOfDelimiters.Length != 0) {
                 var str = new string(arraOfDelimiters);
-                Lookup(str);
+                var isKeword = Lookup(str);
+                Add(str, isKeword);
                 ListOfDelimeiters.Clear();
             }
+            var arrayOfConstants = ListOfConstants.ToArray();
+            if (arrayOfConstants.Length != 0) {
+                var str = new string(arrayOfConstants);
+                GlobalIndexList.Add(new CharacterItem {
+                    LookupIndex = 0,
+                    IsConstant = true,
+                    Value = str
+                });
+                ListOfConstants.Clear();
+            }
+        }
+
+        private int ResolveKeyWordIndex(string identificator) {
+            SpecialCharactersSpecialCharacter delimiter = null;
+            var keywordValue = 0;
+
+            var keyWordsKeyWord = _keyWordTable.KeyWord.FirstOrDefault(e => e.value == identificator);
+
+            if (keyWordsKeyWord == null) {
+                delimiter = _delimitersTable.SpecialCharacter.FirstOrDefault(e => e.value == identificator);
+            }
+
+            if (keyWordsKeyWord != null) {
+                keywordValue = keyWordsKeyWord.index;
+            }
+
+            if (delimiter != null) {
+                keywordValue = delimiter.index;
+            }
+            return keywordValue;
         }
     }
 }
