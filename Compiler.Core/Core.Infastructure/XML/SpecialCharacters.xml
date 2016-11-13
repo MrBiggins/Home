@@ -12,4 +12,7 @@
   <SpecialCharacter value="*" index="11"/>
   <SpecialCharacter value="/" index="12"/>
   <SpecialCharacter value="$" index="13"/>
+  <SpecialCharacter value="." index="14"/>
+  <SpecialCharacter value="=" index="15"/>
+  <SpecialCharacter value=">" index="16"/>
 </SpecialCharacters>

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Core.Infastructure.Interface;
 
 namespace Core.Infastructure {
@@ -16,16 +14,20 @@ namespace Core.Infastructure {
 
         public List<CharacterItem> GlobalIndexList;
 
-        private readonly string _keyWordTable;
-
-
+        private readonly KeyWords _keyWordTable;
+        private readonly SpecialCharacters _delimitersTable;
 
         public Parser() {
             ListOfChars = new List<char>();
             ListOfInts = new List<char>();
             ListOfDelimeiters = new List<char>();
             GlobalIndexList = new List<CharacterItem>();
-            _keyWordTable = File.ReadAllText(@"C:/GIT/Compiler.Core/LexicalTest/bin/Debug/XML/keyWordList.xml");
+
+            var keyWordTableXml = File.ReadAllText(@"C:/GIT/Compiler.Core/LexicalTest/bin/Debug/XML/keyWordList.xml");
+            _keyWordTable = KeyWords.Deserialize(keyWordTableXml);
+
+            var delimitersTableXml = File.ReadAllText(@"C:/GIT/Compiler.Core/LexicalTest/bin/Debug/XML/SpecialCharacters.xml");
+            _delimitersTable = SpecialCharacters.Deserialize(delimitersTableXml);
         }
 
         public void GetChar(char a) {
@@ -33,11 +35,12 @@ namespace Core.Infastructure {
 
             switch (type) {
                 case CharacterType.WhiteSPace:
-                    MapKeywords(type);
+                    MapKeywords();
                     break;
 
                 case CharacterType.Delimiter:
-                    MapKeywords(type);
+                    ListOfDelimeiters.Add(a);
+                    MapKeywords();
                     break;
 
                 case CharacterType.Letter:
@@ -57,25 +60,53 @@ namespace Core.Infastructure {
 
 
 
-        public void Lookup(string lexem, CharacterType type) {
-            //TODO: Check if keword or if delimiter in tables!
-            // if type is delimeter but not found=> then throw exception error goto START
-
-            var keyWordTable = KeyWords.Deserialize(_keyWordTable);
-            var isKeword = keyWordTable.KeyWord.Any(e => e.value.ToUpper() == lexem.ToUpper());
-            if (isKeword) {
-                var keyWordsKeyWord = keyWordTable.KeyWord.FirstOrDefault(e => e.value == lexem);
-                if (keyWordsKeyWord != null)
-                    GlobalIndexList.Add(new CharacterItem {
-                        LookupIndex = keyWordsKeyWord.index,
-                        IsKeyword = true,
-                        Value = lexem
-                    });
+        public void Lookup(string lexem) {
+            var isKeword = _keyWordTable.KeyWord.Any(e => string.Equals(e.value, lexem,
+                StringComparison.CurrentCultureIgnoreCase));
+            if (!isKeword) {
+                isKeword = _delimitersTable.SpecialCharacter.Any(e => string.Equals(e.value,
+                    lexem, StringComparison.CurrentCultureIgnoreCase));
             }
+            Add(lexem, isKeword);
         }
 
-        public void AddCharacter(string a) {
+        public void Add(string identificator, bool isKeyword) {
+            if (isKeyword) {
 
+                SpecialCharactersSpecialCharacter delimiter = null;
+                var keywordValue = 0;
+
+                var keyWordsKeyWord = _keyWordTable.KeyWord.FirstOrDefault(e => e.value == identificator);
+
+                if (keyWordsKeyWord == null) {
+
+                    delimiter = _delimitersTable.SpecialCharacter.FirstOrDefault(e => e.value == identificator);
+                }
+
+                if (keyWordsKeyWord != null) {
+
+                    keywordValue = keyWordsKeyWord.index;
+                }
+
+                if (delimiter != null) {
+
+                    keywordValue = delimiter.index;
+                }
+                if (GlobalIndexList.All(e => e.Value != identificator)) {
+                    GlobalIndexList.Add(new CharacterItem {
+                        LookupIndex = keywordValue,
+                        IsKeyword = true,
+                        Value = identificator
+                    });
+                }
+
+            } else {
+                GlobalIndexList.Add(new CharacterItem {
+                    LookupIndex = 0,
+                    IsKeyword = false,
+                    Value = identificator
+                });
+            }
         }
 
         public CharacterType CheckCharacterType(char a) {
@@ -93,11 +124,19 @@ namespace Core.Infastructure {
         }
 
 
-        private void MapKeywords(CharacterType type) {
+        private void MapKeywords() {
             var arrayOfChars = ListOfChars.ToArray();
-            var str = new string(arrayOfChars);
-            Lookup(str, type);
-            ListOfChars.Clear();
+            if (arrayOfChars.Length != 0) {
+                var str = new string(arrayOfChars);
+                Lookup(str);
+                ListOfChars.Clear();
+            }
+            var arraOfDelimiters = ListOfDelimeiters.ToArray();
+            if (arraOfDelimiters.Length != 0) {
+                var str = new string(arraOfDelimiters);
+                Lookup(str);
+                ListOfDelimeiters.Clear();
+            }
         }
     }
 }
