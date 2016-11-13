@@ -28,7 +28,7 @@ namespace Compiler.UI.ViewModel {
             Application.Current.Dispatcher.BeginInvoke(new Action(() => {
                 Output.Add(action.Message);
             }));
-            
+
         }
 
         #endregion
@@ -57,6 +57,17 @@ namespace Compiler.UI.ViewModel {
             }
         }
 
+        private List<CharacterItem> _constantItems;
+        public List<CharacterItem> ConstantItems {
+            get {
+                return _constantItems;
+            }
+            set {
+                if (_constantItems == value) return;
+                _constantItems = value;
+                RaisePropertyChanged(() => ConstantItems);
+            }
+        }
 
         private ObservableCollection<string> _output;
         public ObservableCollection<string> Output {
@@ -76,21 +87,24 @@ namespace Compiler.UI.ViewModel {
             var bw = new BackgroundWorker();
             bw.DoWork += (sender, args) => {
                 var parser = new Parser();
-                Application.Current.Dispatcher.BeginInvoke(new Action(() => { Output.Add("# start to parse code"); }));
+                Application.Current.Dispatcher.BeginInvoke(new Action(() => { Output.Add("# ---start to parse code---"); }));
                 parser.Start(source);
 
                 Application.Current.Dispatcher.BeginInvoke(new Action(() => {
-                    KeywordItems = parser.GlobalIndexList.Where(e => e.IsKeyword).ToList();
+                    KeywordItems = parser.GlobalIndexList.Where(e => e.IsKeyword && !e.IsConstant).ToList();
                 }));
 
                 Application.Current.Dispatcher.BeginInvoke(new Action(() => {
-                    IdentificatorsItems = parser.GlobalIndexList.Where(e => !e.IsKeyword).ToList();
+                    IdentificatorsItems = parser.GlobalIndexList.Where(e => !e.IsKeyword&& !e.IsConstant).ToList();
                 }));
 
-
-                var constants = parser.GlobalIndexList.Where(e => e.IsConstant).Select(d => d.Value).ToList();
+                Application.Current.Dispatcher.BeginInvoke(new Action(() => {
+                    ConstantItems = parser.GlobalIndexList.Where(e => e.IsConstant).ToList();
+                }));
             };
             bw.RunWorkerCompleted += (sender, args) => {
+
+                Output.Add("# ---finish to parse code---");
                 if (args.Error != null)
                     MessageBox.Show(args.Error.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             };

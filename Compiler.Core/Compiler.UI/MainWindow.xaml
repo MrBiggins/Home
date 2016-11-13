@@ -32,30 +32,39 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200*"/>
                             <ColumnDefinition Width="200*"/>
+                            <ColumnDefinition Width="200*"/>
                         </Grid.ColumnDefinitions>
-                        
-                        
-                        <StackPanel Grid.Column="0" Margin="10" Orientation="Vertical">
-                            <Label FontWeight="Bold">Keywords</Label>
-                            <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True">
-                                <DataGrid BorderBrush="Black" BorderThickness="2" AutoGenerateColumns="False" ItemsSource="{Binding KeywordItems}" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
-                                    <DataGrid.Columns>
-                                        <DataGridTextColumn Binding="{Binding LookupIndex}" Header="Lookup Index" />
-                                        <DataGridTextColumn Binding="{Binding Value}" Header="Keyword" />
-                                    </DataGrid.Columns>
-                                </DataGrid>
-                            </ScrollViewer>
-                        </StackPanel>
-                        
-                        
-                        <StackPanel CanVerticallyScroll="True" Grid.Column="1" Margin="10" Orientation="Vertical">
-                            <Label FontWeight="Bold">Identificators</Label>
-                            <DataGrid BorderBrush="Black" BorderThickness="2" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" ItemsSource="{Binding IdentificatorsItems}" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding Value}" Header="Identifier" />
-                                </DataGrid.Columns>
-                            </DataGrid>
-                        </StackPanel>
+                        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" >
+                            <ListView BorderThickness="2" ItemsSource="{Binding KeywordItems}" Margin="5">
+
+                                <ListView.View>
+                                    <GridView AllowsColumnReorder="True">
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=LookupIndex}" Header="Index J" Width="60"/>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Value}" Header="Keyword" Width="100"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </ScrollViewer>
+                        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                            <ListView BorderThickness="2" ItemsSource="{Binding IdentificatorsItems}" Margin="5">
+                                <ListView.View>
+                                    <GridView AllowsColumnReorder="True">
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Value}" Header="Identificator" Width="100"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </ScrollViewer>
+
+                        <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto">
+                            <ListView BorderThickness="2" ItemsSource="{Binding ConstantItems}" Margin="5">
+                                <ListView.View>
+                                    <GridView AllowsColumnReorder="True">
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Value}" Header="literal" Width="90"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </ScrollViewer>
+
                     </Grid>
 
                 </StackPanel>

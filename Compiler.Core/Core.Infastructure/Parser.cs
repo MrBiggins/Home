@@ -28,11 +28,12 @@ namespace Core.Infastructure {
             ListOfDelimeiters = new List<char>();
             GlobalIndexList = new List<CharacterItem>();
             TempCharacterList = new List<char>();
-
-            var keyWordTableXml = File.ReadAllText(@"C:/GIT/Compiler.Core/LexicalTest/bin/Debug/XML/keyWordList.xml");
+            var baseDir = System.AppDomain.CurrentDomain.BaseDirectory;
+            var path = Path.Combine(baseDir, @"XML/keyWordList.xml");
+            var keyWordTableXml = File.ReadAllText(Path.Combine(baseDir, @"XML/keyWordList.xml"));
             _keyWordTable = KeyWords.Deserialize(keyWordTableXml);
 
-            var delimitersTableXml = File.ReadAllText(@"C:/GIT/Compiler.Core/LexicalTest/bin/Debug/XML/SpecialCharacters.xml");
+            var delimitersTableXml = File.ReadAllText(Path.Combine(baseDir, @"XML/SpecialCharacters.xml"));
             _delimitersTable = SpecialCharacters.Deserialize(delimitersTableXml);
         }
 
@@ -66,10 +67,7 @@ namespace Core.Infastructure {
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-
         }
-
-
 
         public bool Lookup(string lexem) {
             var isKeword = _keyWordTable.KeyWord.Any(e => string.Equals(e.value, lexem,
@@ -92,15 +90,15 @@ namespace Core.Infastructure {
                     });
                 }
             } else {
-                GlobalIndexList.Add(new CharacterItem {
-                    LookupIndex = 0,
-                    IsKeyword = false,
-                    Value = identificator
-                });
-
+                if (GlobalIndexList.All(e => e.Value != identificator)) {
+                    GlobalIndexList.Add(new CharacterItem {
+                        LookupIndex = 0,
+                        IsKeyword = false,
+                        Value = identificator
+                    });
+                }
             }
         }
-
 
         public CharacterType CheckCharacterType(char a) {
             return CharTypeResolver.Resolve(a);
@@ -130,7 +128,7 @@ namespace Core.Infastructure {
 
         public void Start(string code) {
             foreach (var t in code) {
-                Messenger.Default.Send(new LogEvent($"# parse char: {t}"));
+                Messenger.Default.Send(new LogEvent($"# ---parse char: {t}---"));
                 GetChar(t);
             }
         }
@@ -154,11 +152,13 @@ namespace Core.Infastructure {
             var arrayOfConstants = ListOfConstants.ToArray();
             if (arrayOfConstants.Length != 0) {
                 var str = new string(arrayOfConstants);
-                GlobalIndexList.Add(new CharacterItem {
-                    LookupIndex = 0,
-                    IsConstant = true,
-                    Value = str
-                });
+                if (GlobalIndexList.All(e => e.Value != str)) {
+                    GlobalIndexList.Add(new CharacterItem {
+                        LookupIndex = 0,
+                        IsConstant = true,
+                        Value = str
+                    });
+                }
                 ListOfConstants.Clear();
             }
         }
