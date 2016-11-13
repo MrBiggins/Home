@@ -164,6 +164,11 @@
             been extended with additional features.
             </summary>
         </member>
+        <member name="P:GalaSoft.MvvmLight.Ioc.SimpleIoc.Default">
+            <summary>
+            This class' default instance.
+            </summary>
+        </member>
         <member name="M:GalaSoft.MvvmLight.Ioc.SimpleIoc.ContainsCreated``1">
             <summary>
             Checks whether at least one instance of a given class is already created in the container.
@@ -333,7 +338,7 @@
             <exception cref="T:Microsoft.Practices.ServiceLocation.ActivationException">If the type serviceType has not
             been registered before calling this method.</exception>
             <returns>
-            A service object of type <paramref name="serviceType"/>.
+            A service object of type <paramref name="serviceType" />.
             </returns>
             <param name="serviceType">An object that specifies the type of service object to get.</param>
         </member>
@@ -450,11 +455,6 @@
             <typeparam name="TService">The class of which an instance must be returned.</typeparam>
             <param name="key">The key uniquely identifying this instance.</param>
             <returns>An instance corresponding to the given type and key.</returns>
-        </member>
-        <member name="P:GalaSoft.MvvmLight.Ioc.SimpleIoc.Default">
-            <summary>
-            This class' default instance.
-            </summary>
         </member>
     </members>
 </doc>

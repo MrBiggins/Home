@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using Core.Infastructure.Events;
 using Core.Infastructure.Interface;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace Core.Infastructure {
     public class Parser : ICompiler {
@@ -128,6 +130,7 @@ namespace Core.Infastructure {
 
         public void Start(string code) {
             foreach (var t in code) {
+                Messenger.Default.Send(new LogEvent($"# parse char: {t}"));
                 GetChar(t);
             }
         }

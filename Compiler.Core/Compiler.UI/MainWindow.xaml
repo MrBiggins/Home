@@ -1,45 +1,74 @@
-﻿<Window x:Class="Compiler.UI.MainWindow"
+﻿<controls:MetroWindow x:Class="Compiler.UI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="650" Width="1120">
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+        xmlns:extention="clr-namespace:Compiler.UI.Extention"
+        Title="PARSER" Height="650" Width="1120">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
-            <ColumnDefinition Width="617*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="27*"/>
-            <RowDefinition Height="593*"/>
-        </Grid.RowDefinitions>
-        <Menu Height="30" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="2">
-            <MenuItem Header="Compile" Command="{Binding CompileCommand}"/>
-            <MenuItem Header="Load" Command="{Binding LoadFileCommand}"/>
-        </Menu>
-        <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
-            <GroupBox Header="Source code" >
-                <StackPanel>
-                    <TextBlock Height="500" Text="{Binding Code}" Foreground="#FF7ABD7A" FontWeight="Bold"/>
-                </StackPanel>
-            </GroupBox>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="10">
-            <GroupBox Header="Output" >
+        <DockPanel LastChildFill="True">
+            <GroupBox Header="Menu" DockPanel.Dock="Top">
                 <StackPanel Orientation="Horizontal">
-                    <GroupBox Header="Key words">
-                        <ListBox Height="400" Width="150" ItemsSource="{Binding KeyWords}"/>
-                    </GroupBox>
-                    <GroupBox Header="Special characters">
-                        <ListBox Height="400" Width="150" ItemsSource="{Binding SpecialCharacters}"/>
-                    </GroupBox>
-                    <GroupBox Header="Functions">
-                        <ListBox Height="400" Width="150" ItemsSource="{Binding Functions}"/>
-                    </GroupBox>
-                    <GroupBox Header="Veriables">
-                        <ListBox Height="400" Width="150" ItemsSource="{Binding Veriables}"/>
-                    </GroupBox>
+                    <Button Content="Compile" Click="ButtonBase_OnClick"></Button>
                 </StackPanel>
             </GroupBox>
-        </StackPanel>
+            <GroupBox DockPanel.Dock="Left" Margin="10" Header="Source">
+                <avalonEdit:TextEditor Name="Source"
+                                       FontFamily="Consolas"
+                                       FontSize="10pt"
+                                       SyntaxHighlighting="VBNET"
+                                       HorizontalAlignment="Center"
+                                       HorizontalScrollBarVisibility="Visible"
+                                       VerticalScrollBarVisibility="Visible"
+                                       IsReadOnly="False" Text="" Width="300">
+                </avalonEdit:TextEditor>
+            </GroupBox>
+            <GroupBox Header="OUTPUT" DockPanel.Dock="Bottom">
+                <ListBox Height="100" ItemsSource="{Binding Output, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></ListBox>
+            </GroupBox>
+            <GroupBox Margin="10" Header="Results">
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200*"/>
+                            <ColumnDefinition Width="200*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        
+                        <StackPanel Grid.Column="0" Margin="10" Orientation="Vertical">
+                            <Label FontWeight="Bold">Keywords</Label>
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True">
+                                <DataGrid BorderBrush="Black" BorderThickness="2" AutoGenerateColumns="False" ItemsSource="{Binding KeywordItems}" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding LookupIndex}" Header="Lookup Index" />
+                                        <DataGridTextColumn Binding="{Binding Value}" Header="Keyword" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </ScrollViewer>
+                        </StackPanel>
+                        
+                        
+                        <StackPanel CanVerticallyScroll="True" Grid.Column="1" Margin="10" Orientation="Vertical">
+                            <Label FontWeight="Bold">Identificators</Label>
+                            <DataGrid BorderBrush="Black" BorderThickness="2" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" ItemsSource="{Binding IdentificatorsItems}" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Value}" Header="Identifier" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </Grid>
+
+                </StackPanel>
+            </GroupBox>
+        </DockPanel>
+
     </Grid>
 
-</Window>
+</controls:MetroWindow>
+
+
+
+
+
+
+
