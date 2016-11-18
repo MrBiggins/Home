@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using Core.Infastructure.Events;
 using Core.Infastructure.Interface;
 using GalaSoft.MvvmLight.Messaging;
@@ -10,6 +9,7 @@ using GalaSoft.MvvmLight.Messaging;
 namespace Core.Infastructure {
     public class Parser : ICompiler {
 
+        #region global variables
 
         public List<char> ListOfChars;
         public List<char> ListOfConstants;
@@ -21,6 +21,8 @@ namespace Core.Infastructure {
         private readonly KeyWords _keyWordTable;
         private readonly SpecialCharacters _delimitersTable;
 
+        #endregion
+
         public Parser() {
 
             ListOfChars = new List<char>();
@@ -28,8 +30,8 @@ namespace Core.Infastructure {
             ListOfDelimeiters = new List<char>();
             GlobalIndexList = new List<CharacterItem>();
             TempCharacterList = new List<char>();
-            var baseDir = System.AppDomain.CurrentDomain.BaseDirectory;
-            var path = Path.Combine(baseDir, @"XML/keyWordList.xml");
+
+            var baseDir = AppDomain.CurrentDomain.BaseDirectory;
             var keyWordTableXml = File.ReadAllText(Path.Combine(baseDir, @"XML/keyWordList.xml"));
             _keyWordTable = KeyWords.Deserialize(keyWordTableXml);
 
@@ -86,15 +88,18 @@ namespace Core.Infastructure {
                     GlobalIndexList.Add(new CharacterItem {
                         LookupIndex = keywordValue,
                         IsKeyword = true,
-                        Value = identificator
+                        Value = identificator,
+                        LexemType = LexemType.TRM
                     });
                 }
-            } else {
+            }
+            else {
                 if (GlobalIndexList.All(e => e.Value != identificator)) {
                     GlobalIndexList.Add(new CharacterItem {
                         LookupIndex = 0,
                         IsKeyword = false,
-                        Value = identificator
+                        Value = identificator,
+                        LexemType = LexemType.IDN
                     });
                 }
             }
@@ -132,7 +137,6 @@ namespace Core.Infastructure {
                 GetChar(t);
             }
         }
-
 
         private void MapKeywords() {
             var arrayOfChars = ListOfChars.ToArray();

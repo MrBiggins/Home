@@ -8,9 +8,9 @@
             if (char.IsLetter(a)) {
                 return CharacterType.Letter;
             }
-           /* if (char.IsSeparator(a)) {
-                return CharacterType.Delimiter;
-            }*/
+            /* if (char.IsSeparator(a)) {
+                 return CharacterType.Delimiter;
+             }*/
             if (char.IsWhiteSpace(a)) {
                 return CharacterType.WhiteSPace;
             }
@@ -25,5 +25,12 @@
         Delimiter,
         Uknown,
         WhiteSPace
+    }
+
+    public enum LexemType {
+        // ReSharper disable once InconsistentNaming
+        TRM,
+        // ReSharper disable once InconsistentNaming
+        IDN
     }
 }

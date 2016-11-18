@@ -6,13 +6,13 @@
         xmlns:extention="clr-namespace:Compiler.UI.Extention"
         Title="PARSER" Height="650" Width="1120">
     <Grid>
-        <DockPanel LastChildFill="True">
-            <GroupBox Header="Menu" DockPanel.Dock="Top">
+        <DockPanel Background="#d6dbe9" LastChildFill="True">
+            <GroupBox Background="#3a5068" Header="Menu" DockPanel.Dock="Top">
                 <StackPanel Orientation="Horizontal">
                     <Button Content="Compile" Click="ButtonBase_OnClick"></Button>
                 </StackPanel>
             </GroupBox>
-            <GroupBox DockPanel.Dock="Left" Margin="10" Header="Source">
+            <GroupBox Background="#3a5068" DockPanel.Dock="Left" Margin="10" Header="Source">
                 <avalonEdit:TextEditor Name="Source"
                                        FontFamily="Consolas"
                                        FontSize="10pt"
@@ -23,48 +23,64 @@
                                        IsReadOnly="False" Text="" Width="300">
                 </avalonEdit:TextEditor>
             </GroupBox>
-            <GroupBox Header="OUTPUT" DockPanel.Dock="Bottom">
+            <GroupBox Background="#fff19c" Header="OUTPUT" DockPanel.Dock="Bottom">
                 <ListBox Height="100" ItemsSource="{Binding Output, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></ListBox>
             </GroupBox>
-            <GroupBox Margin="10" Header="Results">
-                <StackPanel Orientation="Horizontal">
+            <GroupBox Background="#3a5068" Margin="10" Header="Results">
+                <StackPanel Background="#eaeaec" Orientation="Horizontal">
                     <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="147*"/>
+                            <RowDefinition Height="190*"/>
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250*"/>
                             <ColumnDefinition Width="200*"/>
-                            <ColumnDefinition Width="200*"/>
-                            <ColumnDefinition Width="200*"/>
+                            <ColumnDefinition Width="300*"/>
                         </Grid.ColumnDefinitions>
-                        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" >
-                            <ListView BorderThickness="2" ItemsSource="{Binding KeywordItems}" Margin="5">
+                        <ScrollViewer Margin="10" Grid.Column="0" VerticalScrollBarVisibility="Auto" Grid.RowSpan="2" >
+                            <ListView ItemsSource="{Binding KeywordItems}" >
 
                                 <ListView.View>
                                     <GridView AllowsColumnReorder="True">
-                                        <GridViewColumn DisplayMemberBinding="{Binding Path=LookupIndex}" Header="Index J" Width="60"/>
-                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Value}" Header="Keyword" Width="100"/>
-                                    </GridView>
-                                </ListView.View>
-                            </ListView>
-                        </ScrollViewer>
-                        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
-                            <ListView BorderThickness="2" ItemsSource="{Binding IdentificatorsItems}" Margin="5">
-                                <ListView.View>
-                                    <GridView AllowsColumnReorder="True">
-                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Value}" Header="Identificator" Width="100"/>
+                                        <!--<GridViewColumn DisplayMemberBinding="{Binding Path=LookupIndex}" Header="Index J" Width="60"/>-->
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Value}" Header="Keyword" Width="200"/>
                                     </GridView>
                                 </ListView.View>
                             </ListView>
                         </ScrollViewer>
 
-                        <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto">
-                            <ListView BorderThickness="2" ItemsSource="{Binding ConstantItems}" Margin="5">
+                        <ScrollViewer  Margin="10" Grid.Row="0" Grid.Column="1" VerticalScrollBarVisibility="Auto" >
+                            <ListView ItemsSource="{Binding IdentificatorsItems}">
                                 <ListView.View>
                                     <GridView AllowsColumnReorder="True">
-                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Value}" Header="literal" Width="90"/>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Value}" Header="Identificator" Width="200"/>
                                     </GridView>
                                 </ListView.View>
                             </ListView>
                         </ScrollViewer>
 
+                        <ScrollViewer Grid.Row="1" Margin="10" Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                            <ListView ItemsSource="{Binding ConstantItems}" >
+                                <ListView.View>
+                                    <GridView AllowsColumnReorder="True">
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Value}" Header="literal" Width="200"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </ScrollViewer>
+
+                        <ScrollViewer Grid.Row="0" Grid.RowSpan="2" Margin="10" Grid.Column="2" VerticalScrollBarVisibility="Auto">
+                            <ListView ItemsSource="{Binding StandartItems}" >
+                                <ListView.View>
+                                    <GridView AllowsColumnReorder="True">
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=LexemType}" Header="Type" Width="90"/>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=LookupIndex}" Header="Index" Width="60"/>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Value}" Header="Lexem" Width="100"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </ScrollViewer>
                     </Grid>
 
                 </StackPanel>

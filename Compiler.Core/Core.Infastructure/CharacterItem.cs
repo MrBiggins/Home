@@ -4,5 +4,6 @@
         public string Value { get; set; }
         public bool IsKeyword { get; set; }
         public bool IsConstant { get; set; }
+        public LexemType LexemType { get; set; }
     }
 }
