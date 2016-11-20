@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tao.FreeGlut;
 using Tao.OpenGl;
 
 namespace OpenGlConsole {
-    class Program {
+    internal class Program {
+
         static void Main(string[] args) {
             Glut.glutInit();
             Glut.glutInitWindowSize(500, 500);
@@ -15,11 +12,7 @@ namespace OpenGlConsole {
 
             init_graphics();
             Glut.glutDisplayFunc(on_display);
-            //   Glut.glutReshapeFunc(on_reshape);
             Glut.glutMainLoop();
-
-
-
 
         }
 
