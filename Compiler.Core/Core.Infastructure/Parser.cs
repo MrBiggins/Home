@@ -85,8 +85,13 @@ namespace Core.Infastructure {
             if (isKeyword) {
                 var keywordValue = ResolveKeyWordIndex(identificator);
                 if (GlobalIndexList.All(e => e.Value != identificator)) {
+                    var nextIndex = 0;
+                    var currentIndex = GlobalIndexList.LastOrDefault(e => e.IsKeyword);
+                    if (currentIndex != null) {
+                        nextIndex = currentIndex.LookupIndex + 1;
+                    }
                     GlobalIndexList.Add(new CharacterItem {
-                        LookupIndex = keywordValue,
+                        LookupIndex = nextIndex,
                         IsKeyword = true,
                         Value = identificator,
                         LexemType = LexemType.TRM
@@ -95,8 +100,13 @@ namespace Core.Infastructure {
             }
             else {
                 if (GlobalIndexList.All(e => e.Value != identificator)) {
+                    var nextIndex = 0;
+                    var currentIndex = GlobalIndexList.LastOrDefault(e => e.IsKeyword != true && e.IsConstant != true);
+                    if (currentIndex != null) {
+                        nextIndex = currentIndex.LookupIndex + 1;
+                    }
                     GlobalIndexList.Add(new CharacterItem {
-                        LookupIndex = 0,
+                        LookupIndex = nextIndex,
                         IsKeyword = false,
                         Value = identificator,
                         LexemType = LexemType.IDN
@@ -157,8 +167,13 @@ namespace Core.Infastructure {
             if (arrayOfConstants.Length != 0) {
                 var str = new string(arrayOfConstants);
                 if (GlobalIndexList.All(e => e.Value != str)) {
+                    var nextIndex = 0;
+                    var currentIndex = GlobalIndexList.LastOrDefault(e => e.IsConstant);
+                    if (currentIndex != null) {
+                        nextIndex = currentIndex.LookupIndex + 1;
+                    }
                     GlobalIndexList.Add(new CharacterItem {
-                        LookupIndex = 0,
+                        LookupIndex = nextIndex,
                         IsConstant = true,
                         Value = str
                     });
@@ -171,7 +186,7 @@ namespace Core.Infastructure {
             SpecialCharactersSpecialCharacter delimiter = null;
             var keywordValue = 0;
 
-            var keyWordsKeyWord = _keyWordTable.KeyWord.FirstOrDefault(e => e.value == identificator);
+            var keyWordsKeyWord = _keyWordTable.KeyWord.FirstOrDefault(e => String.Equals(e.value, identificator, StringComparison.CurrentCultureIgnoreCase));
 
             if (keyWordsKeyWord == null) {
                 delimiter = _delimitersTable.SpecialCharacter.FirstOrDefault(e => e.value == identificator);
@@ -182,6 +197,7 @@ namespace Core.Infastructure {
             }
 
             if (delimiter != null) {
+                if (!delimiter.isAlowed) { throw new Exception($"The {delimiter.value} symbol is not allowed!"); }
                 keywordValue = delimiter.index;
             }
             return keywordValue;

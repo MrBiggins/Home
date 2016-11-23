@@ -1,18 +1,21 @@
 <SpecialCharacters>
-  <SpecialCharacter value=":=" index="1"/>
-  <SpecialCharacter value="+" index="2"/>
-  <SpecialCharacter value="[" index="3"/>
-  <SpecialCharacter value="]" index="4"/>
-  <SpecialCharacter value="(" index="5"/>
-  <SpecialCharacter value=")" index="6"/>
-  <SpecialCharacter value=";" index="7"/>
-  <SpecialCharacter value=":" index="8"/>
-  <SpecialCharacter value="," index="9"/>
-  <SpecialCharacter value="-" index="10"/>
-  <SpecialCharacter value="*" index="11"/>
-  <SpecialCharacter value="/" index="12"/>
-  <SpecialCharacter value="$" index="13"/>
-  <SpecialCharacter value="." index="14"/>
-  <SpecialCharacter value="=" index="15"/>
-  <SpecialCharacter value=">" index="16"/>
+  <SpecialCharacter value=":=" index="1" isAlowed="true"/>
+  <SpecialCharacter value="+" index="2" isAlowed="true"/>
+  <SpecialCharacter value="[" index="3" isAlowed="true"/>
+  <SpecialCharacter value="]" index="4" isAlowed="true"/>
+  <SpecialCharacter value="(" index="5" isAlowed="true"/>
+  <SpecialCharacter value=")" index="6" isAlowed="true"/>
+  <SpecialCharacter value=";" index="7" isAlowed="true"/>
+  <SpecialCharacter value=":" index="8" isAlowed="true"/>
+  <SpecialCharacter value="," index="9" isAlowed="true"/>
+  <SpecialCharacter value="-" index="10" isAlowed="true"/>
+  <SpecialCharacter value="*" index="11" isAlowed="true"/>
+  <SpecialCharacter value="/" index="12" isAlowed="true"/>
+  <SpecialCharacter value="$" index="13" isAlowed="true"/>
+  <SpecialCharacter value="." index="14" isAlowed="true"/>
+  <SpecialCharacter value="=" index="15" isAlowed="true"/>
+  <SpecialCharacter value=">" index="16" isAlowed="true"/>
+  <SpecialCharacter value="?" index="17" isAlowed="false"/>
+  <SpecialCharacter value="&amp;" index="18" isAlowed="false"/>
+  <SpecialCharacter value="@" index="17" isAlowed="true"/>
 </SpecialCharacters>

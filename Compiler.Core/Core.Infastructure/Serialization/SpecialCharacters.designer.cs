@@ -228,6 +228,8 @@ namespace Core.Infastructure {
 
         private byte indexField;
 
+        private bool isAlowedField;
+
         private static System.Xml.Serialization.XmlSerializer serializer;
 
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -247,6 +249,16 @@ namespace Core.Infastructure {
             }
             set {
                 this.indexField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public bool isAlowed {
+            get {
+                return this.isAlowedField;
+            }
+            set {
+                this.isAlowedField = value;
             }
         }
 

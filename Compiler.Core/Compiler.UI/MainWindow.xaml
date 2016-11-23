@@ -43,7 +43,7 @@
 
                                 <ListView.View>
                                     <GridView AllowsColumnReorder="True">
-                                        <!--<GridViewColumn DisplayMemberBinding="{Binding Path=LookupIndex}" Header="Index J" Width="60"/>-->
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=LookupIndex}" Header="Index J" Width="60"/>
                                         <GridViewColumn DisplayMemberBinding="{Binding Path=Value}" Header="Keyword" Width="200"/>
                                     </GridView>
                                 </ListView.View>
@@ -54,6 +54,7 @@
                             <ListView ItemsSource="{Binding IdentificatorsItems}">
                                 <ListView.View>
                                     <GridView AllowsColumnReorder="True">
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=LookupIndex}" Header="Index" Width="60"/>
                                         <GridViewColumn DisplayMemberBinding="{Binding Path=Value}" Header="Identificator" Width="200"/>
                                     </GridView>
                                 </ListView.View>
@@ -64,6 +65,7 @@
                             <ListView ItemsSource="{Binding ConstantItems}" >
                                 <ListView.View>
                                     <GridView AllowsColumnReorder="True">
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=LookupIndex}" Header="Index" Width="60"/>
                                         <GridViewColumn DisplayMemberBinding="{Binding Path=Value}" Header="literal" Width="200"/>
                                     </GridView>
                                 </ListView.View>
