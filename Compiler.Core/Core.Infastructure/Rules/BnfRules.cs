@@ -129,21 +129,51 @@ namespace Compiler.Core.Rules {
 
                         break;
                     case 1:
-                        var splitetedVer = linesToCheck[i].Split(',', ';');
-                        for (var j = 0; j < splitetedVer.Count(); j++) {
-                            if (!Regex.IsMatch(splitetedVer[j], @"^[a-zA-Z]+\;?$")) {
-                                var veriables = splitetedVer[j].Split(':');
-                                foreach (var item in veriables) {
-                                    if (!Regex.IsMatch(item.Replace(" ", string.Empty), @"^[a-zA-Z]+\;?$")) { return false; }
-                                }
-                            }
+                        var veriableLines = linesToCheck[i].Split(';');
+                        var splittedListOfParams = veriableLines[0].Split(',');
+                        if (splittedListOfParams.Length == 1) {
+                            return false;
                         }
+
+                        if (!Regex.IsMatch(splittedListOfParams[0], @"^[a-zA-Z]+\;?$")) {
+                            return false;
+                        }
+                        var splittedListOfParams2 = splittedListOfParams[1].Split(':');
+                        if (splittedListOfParams2.Length == 1) {
+                            return false;
+                        }
+                        if (!CheckLanguage(splittedListOfParams2)) return false;
+
+                        var splittedListOfParamsSecondLine = veriableLines[1].Split(':');
+
+                        if (!CheckLanguage(splittedListOfParamsSecondLine)) return false;
+
+                        //for (var j = 0; j < splitetedVer.Count(); j++) {
+                        //    if (!Regex.IsMatch(splitetedVer[j], @"^[a-zA-Z]+\;?$")) {
+                        //        var veriables = splitetedVer[j].Split(':');
+                        //        foreach (var item in veriables) {
+                        //            if (!Regex.IsMatch(item.Replace(" ", string.Empty), @"^[a-zA-Z]+\;?$")) { return false; }
+                        //        }
+                        //    }
+                        //}
                         break;
 
                     case 2:
                         if (linesToCheck[i] != ";")
                             return false;
                         break;
+                }
+            }
+            return true;
+        }
+
+        private static bool CheckLanguage(string[] splittedListOfParams2)
+        {
+            foreach (var s in splittedListOfParams2)
+            {
+                if (!Regex.IsMatch(s.Trim(), @"^[a-zA-Z]+\;?$"))
+                {
+                    return false;
                 }
             }
             return true;

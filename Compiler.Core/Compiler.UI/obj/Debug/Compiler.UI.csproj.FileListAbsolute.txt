@@ -1,76 +1,25 @@
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\Compiler.UI.exe.config
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\Compiler.UI.exe
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\Compiler.UI.pdb
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\Compiler.Core.dll
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.dll
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Extras.dll
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Platform.dll
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\Microsoft.Practices.ServiceLocation.dll
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\System.Windows.Interactivity.dll
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\Compiler.Core.pdb
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.pdb
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.xml
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Extras.xml
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Platform.xml
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\bin\Debug\Microsoft.Practices.ServiceLocation.xml
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.csprojResolveAssemblyReference.cache
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\obj\Debug\MainWindow.baml
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\obj\Debug\MainWindow.g.cs
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\obj\Debug\App.g.cs
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI_MarkupCompile.cache
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.g.resources
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.Properties.Resources.resources
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.csproj.GenerateResource.Cache
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.exe
-\\psf\home\documents\visual studio 2013\Projects\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.pdb
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\Compiler.UI.exe.config
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.exe
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.pdb
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\Compiler.UI.exe
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\Compiler.UI.pdb
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\Compiler.Core.dll
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.dll
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Extras.dll
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Platform.dll
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\Microsoft.Practices.ServiceLocation.dll
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\Compiler.Core.pdb
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.pdb
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.xml
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Extras.xml
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Platform.xml
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\bin\Debug\Microsoft.Practices.ServiceLocation.xml
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.csprojResolveAssemblyReference.cache
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\obj\Debug\MainWindow.baml
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\obj\Debug\MainWindow.g.cs
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\obj\Debug\App.g.cs
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI_MarkupCompile.cache
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.g.resources
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.Properties.Resources.resources
-C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.csproj.GenerateResource.Cache
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\Compiler.UI.exe.config
-C:\GIT\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.exe
-C:\GIT\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.pdb
+C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\XML\keyWordList.xml
+C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\XML\SpecialCharacters.xml
+C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\XML\TypeList.xml
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\Compiler.UI.exe
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\Compiler.UI.pdb
+C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\Core.Infastructure.dll
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.dll
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Extras.dll
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\ICSharpCode.AvalonEdit.dll
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\MahApps.Metro.dll
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\System.Windows.Interactivity.dll
+C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\Core.Infastructure.pdb
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.pdb
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.xml
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Extras.xml
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\ICSharpCode.AvalonEdit.xml
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\MahApps.Metro.pdb
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\MahApps.Metro.xml
 C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
@@ -83,12 +32,7 @@ C:\GIT\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI_MarkupCompile.cache
 C:\GIT\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.g.resources
 C:\GIT\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.Properties.Resources.resources
 C:\GIT\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.csproj.GenerateResource.Cache
+C:\GIT\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.exe
+C:\GIT\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI.pdb
 C:\GIT\Compiler.Core\Compiler.UI\obj\Debug\App.baml
-C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\ICSharpCode.AvalonEdit.dll
-C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\ICSharpCode.AvalonEdit.xml
 C:\GIT\Compiler.Core\Compiler.UI\obj\Debug\Compiler.UI_MarkupCompile.lref
-C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\XML\keyWordList.xml
-C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\XML\SpecialCharacters.xml
-C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\XML\TypeList.xml
-C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\Core.Infastructure.dll
-C:\GIT\Compiler.Core\Compiler.UI\bin\Debug\Core.Infastructure.pdb

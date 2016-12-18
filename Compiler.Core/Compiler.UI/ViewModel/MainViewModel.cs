@@ -7,7 +7,6 @@ using System.Windows;
 using Core.Infastructure;
 using Core.Infastructure.Events;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 
 namespace Compiler.UI.ViewModel {
@@ -127,7 +126,13 @@ namespace Compiler.UI.ViewModel {
                     StandartItems = parser.GlobalIndexList.Where(e => !e.IsConstant).ToList();
                 }));
 
+                Application.Current.Dispatcher.BeginInvoke(new Action(() => {
+                    Output.Add("# ---start to analyze code---");
+                }));
                 AnaliseLexical(source);
+                Application.Current.Dispatcher.BeginInvoke(new Action(() => {
+                    Output.Add("# ---finish to analyze code---");
+                }));
             };
             bw.RunWorkerCompleted += (sender, args) => {
 
@@ -140,11 +145,13 @@ namespace Compiler.UI.ViewModel {
             bw.RunWorkerAsync();
         }
 
-        private static void AnaliseLexical(string source) {
-            var lines = source.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+        private void AnaliseLexical(string source) {
+           
+            var lines = source.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
             var lineForAnalise = lines.FirstOrDefault();
             var syntaxCheck = new SyntaxisAnalyzer();
             syntaxCheck.CheckInputGrammar(lineForAnalise, 0);
+          
         }
     }
 }
