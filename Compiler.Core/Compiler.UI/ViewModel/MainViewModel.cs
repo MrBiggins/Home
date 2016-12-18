@@ -127,7 +127,7 @@ namespace Compiler.UI.ViewModel {
                     StandartItems = parser.GlobalIndexList.Where(e => !e.IsConstant).ToList();
                 }));
 
-
+                AnaliseLexical(source);
             };
             bw.RunWorkerCompleted += (sender, args) => {
 
@@ -138,6 +138,13 @@ namespace Compiler.UI.ViewModel {
 
             };
             bw.RunWorkerAsync();
+        }
+
+        private static void AnaliseLexical(string source) {
+            var lines = source.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+            var lineForAnalise = lines.FirstOrDefault();
+            var syntaxCheck = new SyntaxisAnalyzer();
+            syntaxCheck.CheckInputGrammar(lineForAnalise, 0);
         }
     }
 }

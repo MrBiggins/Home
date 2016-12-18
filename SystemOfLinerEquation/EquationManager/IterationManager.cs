@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using EquationManager.Interface;
 using Microsoft.Win32.SafeHandles;
@@ -7,13 +8,17 @@ namespace EquationManager {
     public class IterationManager : IGauss {
 
         public double[,] GetMatrix(double[,] matrix) {
+            var text = File.ReadAllLines(@"matrix1.txt");
+
+
             for (var i = 1; i < matrix.GetLength(1); i++) {
+                var numbers = text[i-1].Split(' ').Select(Int32.Parse).ToList();
                 for (var j = 1; j < matrix.GetLength(1); j++) {
-                    Console.WriteLine("Enter value for A" + i + j);
-                    matrix[i - 1, j - 1] = Convert.ToDouble(Console.ReadLine());
+                       
+                        matrix[i - 1, j - 1] = Convert.ToDouble(numbers[j-1]);
+                    
                 }
-                Console.WriteLine("Enter value for B" + i);
-                matrix[i - 1, matrix.GetLength(0)] = Convert.ToDouble(Console.ReadLine());
+                matrix[i - 1, matrix.GetLength(0)] = Convert.ToDouble(numbers[matrix.GetLength(0)]);
             }
 
             return matrix;
@@ -24,7 +29,8 @@ namespace EquationManager {
             if (matrix[0, 0] > matrix[1, 0] && matrix[1, 0] > matrix[2, 0]) {
                 Console.WriteLine("System has unique solution");
 
-            } else while (isFinished == false) {
+            }
+            else while (isFinished == false) {
                     double tempMatrix;
                     if (matrix[0, 0] < matrix[1, 0] && matrix[1, 0] < matrix[2, 0]) {
                         for (var j = 0; j < matrix.GetLength(1); j++) {

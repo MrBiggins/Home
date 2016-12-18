@@ -8,3 +8,8 @@ C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.Core\bin\Debug\Compiler.
 C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.Core\obj\Debug\Compiler.Core.csprojResolveAssemblyReference.cache
 C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.Core\obj\Debug\Compiler.Core.dll
 C:\Users\Denis\Source\Repos\Home\Compiler.Core\Compiler.Core\obj\Debug\Compiler.Core.pdb
+C:\GIT\Compiler.Core\Compiler.Core\bin\Debug\Compiler.Core.dll
+C:\GIT\Compiler.Core\Compiler.Core\bin\Debug\Compiler.Core.pdb
+C:\GIT\Compiler.Core\Compiler.Core\obj\Debug\Compiler.Core.csprojResolveAssemblyReference.cache
+C:\GIT\Compiler.Core\Compiler.Core\obj\Debug\Compiler.Core.dll
+C:\GIT\Compiler.Core\Compiler.Core\obj\Debug\Compiler.Core.pdb

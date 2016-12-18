@@ -18,5 +18,13 @@ namespace LexicalTest {
             var ids = parser.GlobalIndexList.Where(e => !e.IsKeyword).Select(d => d.Value).ToList();
             var constants = parser.GlobalIndexList.Where(e => e.IsConstant).Select(d => d.Value).ToList();
         }
+
+        [TestMethod]
+        public void AnalyzeCode() {
+            var code = File.ReadAllLines(@"Source.txt");
+            var lineForAnalise = code.FirstOrDefault();
+            var syntaxCheck = new Compiler.Core.Menegers.SyntaxisAnalyzer();
+            syntaxCheck.CheckInputGrammar(lineForAnalise, 0);
+        }
     }
 }
