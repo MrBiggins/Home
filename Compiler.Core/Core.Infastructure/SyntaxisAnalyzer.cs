@@ -11,24 +11,25 @@ namespace Core.Infastructure {
                 var splittedLineOfCode = lineOfCode.Split(' ');
                 var list = splittedLineOfCode.ToList();
                 list.RemoveAll(string.IsNullOrEmpty);
-                switch (list[0].ToLower()) {
-                    case "var":
-                        CallAsignmentRule(lineOfCode, lineNumber);
-                        break;
-                    case "procedure":
-                        CallProcedureRule(lineOfCode, lineNumber);
-                        break;
-                    case "begin":
-                        CallBeginRule(lineOfCode, lineNumber);
-                        break;
-                    case "while":
-                        CallWhileRule(lineOfCode, lineNumber);
-                        break;
-                    default:
-                    throw new Exception($"Failed to compile. Error on line: {lineNumber}");
-                    //CallFunctionRule(lineOfCode, lineNumber);
-                }
-            
+            CallProcedureRule(lineOfCode, lineNumber);
+            /*  switch (list[0].ToLower()) {
+                  case "var":
+                      CallAsignmentRule(lineOfCode, lineNumber);
+                      break;
+                  case "procedure":
+                      CallProcedureRule(lineOfCode, lineNumber);
+                      break;
+                  case "begin":
+                      CallBeginRule(lineOfCode, lineNumber);
+                      break;
+                  case "while":
+                      CallWhileRule(lineOfCode, lineNumber);
+                      break;
+                  default:
+                  throw new Exception($"Failed to compile. Error on line: {lineNumber}");
+                  //CallFunctionRule(lineOfCode, lineNumber);
+              }*/
+
         }
 
         private static void CallFunctionRule(string lineOfCode, int lineNumber) {

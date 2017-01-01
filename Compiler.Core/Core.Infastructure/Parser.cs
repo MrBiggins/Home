@@ -71,9 +71,10 @@ namespace Core.Infastructure {
             }
         }
 
-        public bool Lookup(string lexem) {
-            var isKeword = _keyWordTable.KeyWord.Any(e => string.Equals(e.value, lexem,
-                StringComparison.CurrentCultureIgnoreCase));
+        public bool Lookup(string lexem)
+        {
+            var lower = lexem.ToLower();
+            var isKeword = _keyWordTable.KeyWord.Any(e => e.value == lower);
             if (!isKeword) {
                 isKeword = _delimitersTable.SpecialCharacter.Any(e => string.Equals(e.value,
                     lexem, StringComparison.CurrentCultureIgnoreCase));

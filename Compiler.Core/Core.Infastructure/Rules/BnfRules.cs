@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Core.Infastructure;
 
 namespace Compiler.Core.Rules {
     public class BnfRules {
 
+     
 
         private static string _originalLineOfCode;
+        private static KeyWords _keyWordTable;
 
         public static bool AsignmentRule(string[] linesToCheck) {
             foreach (var codeline in linesToCheck) {
@@ -97,6 +101,11 @@ namespace Compiler.Core.Rules {
         }
 
         private static bool ProcedureRule1(IReadOnlyList<string> linesToCheck) {
+
+            var baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            var keyWordTableXml = File.ReadAllText(Path.Combine(baseDir, @"XML/keyWordList.xml"));
+            _keyWordTable = KeyWords.Deserialize(keyWordTableXml);
+
             for (var i = 0; i < linesToCheck.Count(); i++) {
                 switch (i) {
                     case 0:
@@ -105,7 +114,8 @@ namespace Compiler.Core.Rules {
                             switch (j) {
                                 case 0:
                                     if (lines[j] != "procedure") {
-                                        return false;
+                                        throw new Exception($"Invalid function name");
+                                        // return false;
                                     }
                                     break;
                                 case 1:
@@ -132,7 +142,8 @@ namespace Compiler.Core.Rules {
                         var veriableLines = linesToCheck[i].Split(';');
                         var splittedListOfParams = veriableLines[0].Split(',');
                         if (splittedListOfParams.Length == 1) {
-                            return false;
+                            throw new Exception("Veriable declaration error! Symbol , missed");
+                            //   return false;
                         }
 
                         if (!Regex.IsMatch(splittedListOfParams[0], @"^[a-zA-Z]+\;?$")) {
@@ -140,7 +151,8 @@ namespace Compiler.Core.Rules {
                         }
                         var splittedListOfParams2 = splittedListOfParams[1].Split(':');
                         if (splittedListOfParams2.Length == 1) {
-                            return false;
+                            throw new Exception("Veriable declaration error! Must be Type : name");
+                            // return false;
                         }
                         if (!CheckLanguage(splittedListOfParams2)) return false;
 
@@ -160,20 +172,27 @@ namespace Compiler.Core.Rules {
 
                     case 2:
                         if (linesToCheck[i] != ";")
-                            return false;
+                            throw new Exception("symbol ; must be at the end!");
+                        // return false;
                         break;
                 }
             }
             return true;
         }
 
-        private static bool CheckLanguage(string[] splittedListOfParams2)
-        {
-            foreach (var s in splittedListOfParams2)
-            {
-                if (!Regex.IsMatch(s.Trim(), @"^[a-zA-Z]+\;?$"))
-                {
-                    return false;
+        private static bool CheckLanguage(string[] splittedListOfParams2) {
+            foreach (var s in splittedListOfParams2) {
+                if (!Regex.IsMatch(s.Trim(), @"^[a-zA-Z]+\;?$")) {
+                    throw new Exception($"Bad keyword or veriable name! {s}");
+                    //return false;
+                }
+            }
+            if (splittedListOfParams2.Length == 2) {
+                var parser = new Parser();
+                var lexem = Regex.Replace(splittedListOfParams2[1], @"\s+", "");
+                var isKeword = _keyWordTable.KeyWord.Any(e => e.value ==lexem.ToLower());
+                if (!isKeword) {
+                    throw new Exception("Type expected! ");
                 }
             }
             return true;
